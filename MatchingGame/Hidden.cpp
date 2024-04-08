@@ -20,7 +20,7 @@ void controlHidden(Cell_1** board, Position& pos, int& status, Player& p, Positi
         //if pressed ENTER
         else if (temp == ENTER_KEY) {
             //play enter sound
-            PlaySound(TEXT("H:\\C C++\\Project_KTLT\\Project_KTLT\\sound\\enter.wav"), NULL, SND_FILENAME | SND_ASYNC);
+            PlaySound(TEXT("Sound/enter.wav"), NULL, SND_FILENAME | SND_ASYNC);
             //check if 2 chosen pairs is the same or not. 
             if (pos.x == selectedPos[0].x && pos.y == selectedPos[0].y) {
                 board[selectedPos[0].y][selectedPos[0].x].drawBox(70);
@@ -30,7 +30,7 @@ void controlHidden(Cell_1** board, Position& pos, int& status, Player& p, Positi
                 board[selectedPos[0].y][selectedPos[0].x].selected = 0;
                 couple = 2;
                 selectedPos[0] = { -1, -1 };
-                PlaySound(TEXT("H:\\C C++\\Project_KTLT\\Project_KTLT\\sound\\error.wav"), NULL, SND_FILENAME | SND_ASYNC);
+                PlaySound(TEXT("Sound/error.wav"), NULL, SND_FILENAME | SND_ASYNC);
             } 
             //check the repetition
             else {
@@ -67,7 +67,7 @@ void controlHidden(Cell_1** board, Position& pos, int& status, Player& p, Positi
                             board[selectedPos[1].y][selectedPos[1].x].drawBox(70);
                             Sleep(500);
 
-                            PlaySound(TEXT("H:\\C C++\\Project_KTLT\\Project_KTLT\\sound\\error.wav"), NULL, SND_FILENAME | SND_ASYNC);
+                            PlaySound(TEXT("Sound/error.wav"), NULL, SND_FILENAME | SND_ASYNC);
                         }
                     }
                     else {
@@ -76,7 +76,7 @@ void controlHidden(Cell_1** board, Position& pos, int& status, Player& p, Positi
                         board[selectedPos[1].y][selectedPos[1].x].drawBox(70);
                         Sleep(500);
 
-                        PlaySound(TEXT("H:\\C C++\\Project_KTLT\\Project_KTLT\\sound\\error.wav"), NULL, SND_FILENAME | SND_ASYNC);
+                        PlaySound(TEXT("Sound/error.wav"), NULL, SND_FILENAME | SND_ASYNC);
                     }
                     // reset the choice pair
                     board[selectedPos[0].y][selectedPos[0].x].selected = 0;
@@ -152,7 +152,7 @@ void controlHidden(Cell_1** board, Position& pos, int& status, Player& p, Positi
     //movement
     {
         //play movement sound
-        PlaySound(TEXT("H:\\C C++\\Project_KTLT\\Project_KTLT\\sound\\move.wav"), NULL, SND_FILENAME | SND_ASYNC);
+        PlaySound(TEXT("Sound/move.wav"), NULL, SND_FILENAME | SND_ASYNC);
         //choose a box
         if ((pos.y != selectedPos[0].y || pos.x != selectedPos[0].x) && (pos.y != selectedPos[1].y || pos.x != selectedPos[1].x)) // ktra xem o nay co dang duoc chon hay khong
             board[pos.y][pos.x].selected = 0;
@@ -421,14 +421,14 @@ void hiddenMode (Player &p){
     //if players choose ESC
     if (status == 2){
         //update the leaderboard
-        writeLeaderBoard(p, "H:\\C C++\\Project_KTLT\\Project_KTLT\\record\\Hidden.txt");
+        writeLeaderBoard(p, "Text/Hidden.txt");
         Sleep(500);
     }  
     //if the board is still not completed
     else if (status == 1 && p.point < 370) {
         //display lose status and update the leaderboard
         displayStatus(0);
-        writeLeaderBoard(p, "H:\\C C++\\Project_KTLT\\Project_KTLT\\record\\Hidden.txt");
+        writeLeaderBoard(p, "Text/Hidden.txt");
         Sleep(500);
     }
     else {
@@ -444,7 +444,7 @@ void hiddenMode (Player &p){
         system("cls");
         if (c == 'y' || c == 'Y') hiddenMode(p);
         //if they choose not, update the leaderboard
-        else writeLeaderBoard(p, "H:\\C C++\\Project_KTLT\\Project_KTLT\\record\\Hidden.txt");
+        else writeLeaderBoard(p, "Text/Hidden.txt");
     }
 
     system("cls");

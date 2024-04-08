@@ -90,7 +90,7 @@ void control(Cell_2** arr, Position& pos, int& status, Player& p, Position selec
         }
         //if pressed the ENTER
         else if (temp == ENTER_KEY) {
-            PlaySound(TEXT("H:\\C C++\\Project_KTLT\\Project_KTLT\\sound\\enter.wav"), NULL, SND_FILENAME | SND_ASYNC);
+            PlaySound(TEXT("Sound/enter.wav"), NULL, SND_FILENAME | SND_ASYNC);
             //if the chosen pair is the same
             if (pos.x == selectedPos[0].x && pos.y == selectedPos[0].y) {
                 //draw box in red color
@@ -104,7 +104,7 @@ void control(Cell_2** arr, Position& pos, int& status, Player& p, Position selec
                 selectedPos[0] = { -1, -1 };
                 //lose life point
                 p.life--;
-                PlaySound(TEXT("H:\\C C++\\Project_KTLT\\Project_KTLT\\sound\\error.wav"), NULL, SND_FILENAME | SND_ASYNC);
+                PlaySound(TEXT("Sound/error.wav"), NULL, SND_FILENAME | SND_ASYNC);
                 goToXY(70, 0);
                 cout << "Life: " << p.life;
             }
@@ -145,7 +145,7 @@ void control(Cell_2** arr, Position& pos, int& status, Player& p, Position selec
 
                             //lose life point
                             p.life--;
-                            PlaySound(TEXT("H:\\C C++\\Project_KTLT\\Project_KTLT\\sound\\error.wav"), NULL, SND_FILENAME | SND_ASYNC);
+                            PlaySound(TEXT("Sound/error.wav"), NULL, SND_FILENAME | SND_ASYNC);
                             goToXY(70, 0);
                             cout << "Life: " << p.life;
                         }
@@ -159,7 +159,7 @@ void control(Cell_2** arr, Position& pos, int& status, Player& p, Position selec
 
                         //lose life point
                         p.life--;
-                        PlaySound(TEXT("H:\\C C++\\Project_KTLT\\Project_KTLT\\sound\\error.wav"), NULL, SND_FILENAME | SND_ASYNC);
+                        PlaySound(TEXT("Sound/error.wav"), NULL, SND_FILENAME | SND_ASYNC);
                         goToXY(70, 0);
                         cout << "Life: " << p.life;
                     }
@@ -202,7 +202,7 @@ void control(Cell_2** arr, Position& pos, int& status, Player& p, Position selec
         if ((pos.y != selectedPos[0].y || pos.x != selectedPos[0].x) && (pos.y != selectedPos[1].y || pos.x != selectedPos[1].x))
             findTheNode(arr, pos.y, pos.x)->selected = 0;
         //movement is similar to the pointer array
-        PlaySound(TEXT("H:\\C C++\\Project_KTLT\\Project_KTLT\\sound\\move.wav"), NULL, SND_FILENAME | SND_ASYNC);
+        PlaySound(TEXT("Sound/move.wav"), NULL, SND_FILENAME | SND_ASYNC);
         switch (key = _getch())
         {
         case KEY_UP:
@@ -443,14 +443,14 @@ void hardMode(Player& p) {
 
     if (status == 2) {
         //update the leaderboard
-        writeLeaderBoard(p, "H:\\C C++\\Project_KTLT\\Project_KTLT\\record\\Hard.txt");
+        writeLeaderBoard(p, "Sound/Hard.txt");
         Sleep(500);
     }
     //if the life is 0 or the board is still not completed
     else if (p.life == 0 || (status == 1 && p.point % 400 != 0)) {
         //display lose status and update the leaderboard
         displayStatus(0);
-        writeLeaderBoard(p, "H:\\C C++\\Project_KTLT\\Project_KTLT\\record\\Hard.txt");
+        writeLeaderBoard(p, "Sound/Hard.txt");
         Sleep(500);
     }
     ///if the life is not 0 when finishing the board
@@ -470,7 +470,7 @@ void hardMode(Player& p) {
         system("cls");
         if (c == 'y' || c == 'Y') hardMode(p);
         //if they choose not, update the leaderboard
-        else writeLeaderBoard(p, "H:\\C C++\\Project_KTLT\\Project_KTLT\\record\\Hard.txt");
+        else writeLeaderBoard(p, "Sound/Hard.txt");
     }
     system("cls");
 }

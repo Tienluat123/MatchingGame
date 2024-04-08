@@ -21,11 +21,11 @@ void printLeaderBoard(char &c) {
     cin >> c;
     string filename;
     if (c == 'n' || c == 'N'){
-        filename = "H:\\C C++\\Project_KTLT\\Project_KTLT\\record\\Normal.txt";
+        filename = "Text/Normal.txt";
     } else if (c == 'h' || c == 'H'){
-        filename = "H:\\C C++\\Project_KTLT\\Project_KTLT\\record\\Hard.txt";
+        filename = "Text/Hard.txt";
     } else if (c == 'i' || c == 'I'){
-        filename = "H:\\C C++\\Project_KTLT\\Project_KTLT\\record\\Hidden.txt";
+        filename = "Text/Hidden.txt";
     } else {
         system("cls");
         return;
@@ -193,7 +193,7 @@ void getPlayerInfor(Player& p) {
 void displayStatus(bool win) {
     if (win) {
         //play win sound
-        PlaySound(TEXT("H:\\C C++\\Project_KTLT\\Project_KTLT\\sound\\win.wav"), NULL, SND_FILENAME | SND_ASYNC);
+        PlaySound(TEXT("Text/win.wav"), NULL, SND_FILENAME | SND_ASYNC);
         //print "you won" when variable "win" is true
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
         goToXY(50, 10);
@@ -208,7 +208,7 @@ void displayStatus(bool win) {
     }
     else {
         //play lose sound
-        PlaySound(TEXT("H:\\C C++\\Project_KTLT\\Project_KTLT\\sound\\lose.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
+        PlaySound(TEXT("Text/lose.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
         //print "you lose" when variable "win" is false
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
         goToXY(50, 10);
@@ -232,7 +232,7 @@ void displayStatus(bool win) {
 //store the background into a char array
 void getNormalBg(char bg[][41]) {
     ifstream fin;
-    fin.open(TEXT("H:\\C C++\\Project_KTLT\\Project_KTLT\\image\\pika.txt"));
+    fin.open(TEXT("Text/pika.txt"));
     if (fin) {
         for (int i = 0; i < 20; i++)
         {
@@ -266,7 +266,7 @@ void displayNormalBg(char bg[][41], int x, int y) {
 //get the background of the the board (hard mode)
 void getHardBg(char bg[][51]) {
     ifstream fin;
-    fin.open(TEXT("H:\\C C++\\Project_KTLT\\Project_KTLT\\image\\hcmus.txt"));
+    fin.open(TEXT("Text/hcmus.txt"));
     if (fin) {
         for (int i = 0; i < 25; i++)
         {
@@ -320,7 +320,7 @@ int menu() {
     cout << "| _|      |__| |__|\\__\\ /__/     \\__\\ \\______||__|  |__|  \\______/";
 
     //Play background sound
-    PlaySound(TEXT("H:\\C C++\\Project_KTLT\\Project_KTLT\\sound\\background.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
+    PlaySound(TEXT("Sound/background.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
 
     //handle the choices of the user
     while (1) {

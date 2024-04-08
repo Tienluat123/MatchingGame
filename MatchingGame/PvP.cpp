@@ -17,7 +17,7 @@ void controlPvP(Cell_1** board, Position& pos, int& status, Player& p, Position 
         //if pressed ENTER
         else if (temp == ENTER_KEY) {
             //play enter sound
-            PlaySound(TEXT("H:\\C C++\\Project_KTLT\\Project_KTLT\\sound\\enter.wav"), NULL, SND_FILENAME | SND_ASYNC);
+            PlaySound(TEXT("Sound/enter.wav"), NULL, SND_FILENAME | SND_ASYNC);
             if (pos.x == selectedPos[0].x && pos.y == selectedPos[0].y) {
                 board[selectedPos[0].y][selectedPos[0].x].drawBox(70);
                 Sleep(500);
@@ -29,7 +29,7 @@ void controlPvP(Cell_1** board, Position& pos, int& status, Player& p, Position 
                 p.point -= 10;
                 if (cur_player <= 1) {
                     cur_player = 2;
-                    PlaySound(TEXT("H:\\C C++\\Project_KTLT\\Project_KTLT\\sound\\error.wav"), NULL, SND_FILENAME | SND_ASYNC);
+                    PlaySound(TEXT("Sound/error.wav"), NULL, SND_FILENAME | SND_ASYNC);
                     goToXY(10, 2);
                     cout << "Life: " << p.life;
                     goToXY(10, 1);
@@ -38,7 +38,7 @@ void controlPvP(Cell_1** board, Position& pos, int& status, Player& p, Position 
                 }
                 else {
                     cur_player = 1;
-                    PlaySound(TEXT("H:\\C C++\\Project_KTLT\\Project_KTLT\\sound\\error.wav"), NULL, SND_FILENAME | SND_ASYNC);
+                    PlaySound(TEXT("Sound/error.wav"), NULL, SND_FILENAME | SND_ASYNC);
                     goToXY(70, 2);
                     cout << "Life: " << p.life;
                     goToXY(70, 1);
@@ -91,7 +91,7 @@ void controlPvP(Cell_1** board, Position& pos, int& status, Player& p, Position 
                             if (cur_player <= 1) {
                                 cur_player = 2;
                                 goToXY(10, 2);
-                                PlaySound(TEXT("H:\\C C++\\Project_KTLT\\Project_KTLT\\sound\\error.wav"), NULL, SND_FILENAME | SND_ASYNC);
+                                PlaySound(TEXT("Sound/error.wav"), NULL, SND_FILENAME | SND_ASYNC);
                                 cout << "Life: " << p.life;
                                 goToXY(10, 1);
                                 cout << "Point: " << p.point;
@@ -99,13 +99,13 @@ void controlPvP(Cell_1** board, Position& pos, int& status, Player& p, Position 
                             else {
                                 cur_player = 1;
                                 goToXY(70, 2);
-                                PlaySound(TEXT("H:\\C C++\\Project_KTLT\\Project_KTLT\\sound\\error.wav"), NULL, SND_FILENAME | SND_ASYNC);
+                                PlaySound(TEXT("Sound/error.wav"), NULL, SND_FILENAME | SND_ASYNC);
                                 cout << "Life: " << p.life;
                                 goToXY(70, 1);
                                 cout << "Point: " << p.point;
                             }
                             goToXY(70, 0);
-                            PlaySound(TEXT("H:\\C C++\\Project_KTLT\\Project_KTLT\\sound\\error.wav"), NULL, SND_FILENAME | SND_ASYNC);
+                            PlaySound(TEXT("Sound/error.wav"), NULL, SND_FILENAME | SND_ASYNC);
                             cout << "Life: " << p.life;
                         }
                     }
@@ -118,7 +118,7 @@ void controlPvP(Cell_1** board, Position& pos, int& status, Player& p, Position 
                         p.point -= 10;
                         if (cur_player <= 1) {
                             cur_player = 2;
-                            PlaySound(TEXT("H:\\C C++\\Project_KTLT\\Project_KTLT\\sound\\error.wav"), NULL, SND_FILENAME | SND_ASYNC);
+                            PlaySound(TEXT("Sound/error.wav"), NULL, SND_FILENAME | SND_ASYNC);
                             goToXY(10, 2);
                             cout << "Life: " << p.life;
                             goToXY(10, 1);
@@ -126,7 +126,7 @@ void controlPvP(Cell_1** board, Position& pos, int& status, Player& p, Position 
                         }
                         else {
                             cur_player = 1;
-                            PlaySound(TEXT("H:\\C C++\\Project_KTLT\\Project_KTLT\\sound\\error.wav"), NULL, SND_FILENAME | SND_ASYNC);
+                            PlaySound(TEXT("Sound/error.wav"), NULL, SND_FILENAME | SND_ASYNC);
                             goToXY(70, 2);
                             cout << "Life: " << p.life;
                             goToXY(70, 1);
@@ -170,7 +170,7 @@ void controlPvP(Cell_1** board, Position& pos, int& status, Player& p, Position 
     //movement
     {
         //play movement sound
-        PlaySound(TEXT("H:\\C C++\\Project_KTLT\\Project_KTLT\\sound\\move.wav"), NULL, SND_FILENAME | SND_ASYNC);
+        PlaySound(TEXT("Sound/move.wav"), NULL, SND_FILENAME | SND_ASYNC);
         if ((pos.y != selectedPos[0].y || pos.x != selectedPos[0].x) && (pos.y != selectedPos[1].y || pos.x != selectedPos[1].x)) // ktra xem o nay co dang duoc chon hay khong
             board[pos.y][pos.x].selected = 0;
         switch (key = _getch())
