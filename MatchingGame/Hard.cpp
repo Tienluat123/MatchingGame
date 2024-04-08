@@ -443,14 +443,14 @@ void hardMode(Player& p) {
 
     if (status == 2) {
         //update the leaderboard
-        writeLeaderBoard(p, "Sound/Hard.txt");
+        writeLeaderBoard(p, "Text/Hard.txt");
         Sleep(500);
     }
     //if the life is 0 or the board is still not completed
     else if (p.life == 0 || (status == 1 && p.point % 400 != 0)) {
         //display lose status and update the leaderboard
         displayStatus(0);
-        writeLeaderBoard(p, "Sound/Hard.txt");
+        writeLeaderBoard(p, "Text/Hard.txt");
         Sleep(500);
     }
     ///if the life is not 0 when finishing the board
@@ -470,7 +470,7 @@ void hardMode(Player& p) {
         system("cls");
         if (c == 'y' || c == 'Y') hardMode(p);
         //if they choose not, update the leaderboard
-        else writeLeaderBoard(p, "Sound/Hard.txt");
+        else writeLeaderBoard(p, "Text/Hard.txt");
     }
     system("cls");
 }
